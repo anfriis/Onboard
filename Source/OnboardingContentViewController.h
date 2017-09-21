@@ -76,6 +76,12 @@ typedef void (^action_callback)(OnboardingViewController *onboardController);
 
 
 /**
+ * @brief The padding on each side of the content
+ */
+@property (nonatomic) CGFloat contentSidePadding;
+
+
+/**
  * @brief The padding between the top of the screen and the top of the icon image view.
  */
 @property (nonatomic) CGFloat topPadding;

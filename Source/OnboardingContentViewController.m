@@ -14,7 +14,7 @@ static NSString * const kDefaultOnboardingFont = @"Helvetica-Light";
 
 #define DEFAULT_TEXT_COLOR [UIColor whiteColor];
 
-static CGFloat const kContentWidthMultiplier = 0.9;
+static CGFloat const kDefaultContentSidePadding = 50;
 static CGFloat const kDefaultImageViewSize = 100;
 static CGFloat const kDefaultTopPadding = 60;
 static CGFloat const kDefaultUnderIconPadding = 30;
@@ -133,6 +133,7 @@ NSString * const kOnboardActionButtonAccessibilityIdentifier = @"OnboardActionBu
     self.movesToNextViewController = NO;
     
     // Default padding values
+	self.contentSidePadding = kDefaultContentSidePadding;
     self.topPadding = kDefaultTopPadding;
     self.underIconPadding = kDefaultUnderIconPadding;
     self.underTitlePadding = kDefaultUnderTitlePadding;
@@ -267,7 +268,7 @@ NSString * const kOnboardActionButtonAccessibilityIdentifier = @"OnboardActionBu
     }
 
     CGFloat viewWidth = CGRectGetWidth(self.view.frame);
-    CGFloat contentWidth = viewWidth * kContentWidthMultiplier;
+    CGFloat contentWidth = viewWidth - (self.contentSidePadding * 2);
     CGFloat xPadding = (viewWidth - contentWidth) / 2.0;
 
     [self.iconImageView setFrame:CGRectMake((viewWidth / 2.0) - (self.iconWidth / 2.0), self.topPadding, self.iconWidth, self.iconHeight)];
